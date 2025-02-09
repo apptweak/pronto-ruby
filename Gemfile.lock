@@ -222,8 +222,8 @@ GEM
       rubocop (~> 1.0)
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)
-    rubocop-yard (0.6.0)
-      rubocop
+    rubocop-yard (0.10.0)
+      rubocop (~> 1.21)
       yard
     ruby-progressbar (1.13.0)
     ruby_parser (3.18.1)
@@ -252,7 +252,7 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    yard (0.9.34)
+    yard (0.9.37)
 
 PLATFORMS
   ruby
