@@ -18,6 +18,7 @@ gem "pronto-reek", require: false
 gem "pronto-scss", require: false
 gem "pronto-stylelint", require: false
 
+gem "rubocop-capybara", require: false
 gem "rubocop-factory_bot", require: false
 gem "rubocop-i18n", require: false
 gem "rubocop-minitest", require: false
