@@ -1,7 +1,9 @@
-require 'webmock/rspec'
-require 'rubygems'
-require 'bundler/setup'
+# frozen_string_literal: true
+
+require "webmock/rspec"
+require "rubygems"
+require "bundler/setup"
 Bundler.require(:default, :test)
-require 'pronto/cli'
+require "pronto/cli"
 $LOAD_PATH.push(File.dirname(__dir__))
-require 'src/github_action_check_run_formatter'
+require "src/github_action_check_run_formatter"

@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-system("git config --global --add safe.directory #{ENV["GITHUB_WORKSPACE"]}")
+system("git config --global --add safe.directory #{ENV.fetch("GITHUB_WORKSPACE", nil)}")
 
-require 'rubygems'
-require 'bundler/setup'
+require "rubygems"
+require "bundler/setup"
 Bundler.require(:default)
-require_relative './src/github_action_check_run_formatter'
-require 'pronto/cli'
+require_relative "src/github_action_check_run_formatter"
+require "pronto/cli"
 
 # github action inputs can only be strings, so when we passes the runners
 # list to this container, github passes container command args quoted like this:
@@ -30,16 +31,16 @@ require 'pronto/cli'
 # ```
 #
 # which works correctly
-if ARGV.include?('-r')
-  runners_index = ARGV.index('-r') + 1
+if ARGV.include?("-r")
+  runners_index = ARGV.index("-r") + 1
   runners = ARGV.at(runners_index)
-  if runners.include?(' ')
+  if runners.include?(" ")
     ARGV.delete_at(runners_index)
-    ARGV.insert(runners_index, runners.split(' '))
+    ARGV.insert(runners_index, runners.split)
   end
 end
-pronto_target_path = ENV.fetch('PRONTO_TARGET_PATH', nil)
-pronto_target_path = ENV.fetch('GITHUB_WORKSPACE', '/data') if pronto_target_path.nil?
+pronto_target_path = ENV.fetch("PRONTO_TARGET_PATH", nil)
+pronto_target_path = ENV.fetch("GITHUB_WORKSPACE", "/data") if pronto_target_path.nil?
 
 Dir.chdir(pronto_target_path) do
   Pronto::CLI.start

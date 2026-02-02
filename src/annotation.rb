@@ -1,5 +1,6 @@
-class Annotation
+# frozen_string_literal: true
 
+class Annotation
   attr_reader :message
 
   def initialize(message)
@@ -18,12 +19,12 @@ class Annotation
       end_line: lineno,
       annotation_level: level_for(message.level),
       message: message.msg,
-      title: message.runner.title,
+      title: message.runner.title
     }
   end
 
   def to_markdown_s
-    "| `#{message.commit_sha[0,7]}` | `#{message.level}` | #{message.msg} |"
+    "| `#{message.commit_sha[0, 7]}` | `#{message.level}` | #{message.msg} |"
   end
 
   def level_for(pronto_level)
@@ -31,8 +32,7 @@ class Annotation
       info: :notice,
       warning: :warning,
       error: :failure,
-      fatal: :failure,
+      fatal: :failure
     }.fetch(pronto_level, :warning)
   end
-
 end

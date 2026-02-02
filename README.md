@@ -1,5 +1,7 @@
 Your all-in-one ruby Pronto runner.
 
+This is a reduced-scope fork of (AdWerx/pronto-ruby)[https://github.com/AdWerx/pronto-ruby], it only focus on Ruby, removing all of npm-related lints.
+
 This [GitHub Action](https://github.com/features/actions) runs [Pronto](https://github.com/prontolabs/pronto) [runners](https://github.com/prontolabs/pronto#runners) on your Ruby project diffs and reports back with a [GitHub Check Run](https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/).
 
 ![check runs](static/checkrun.png)
@@ -18,8 +20,6 @@ The docker image of this Action includes the following [Pronto Runners](https://
 - rails_schema
 - reek
 - rubocop
-- scss
-- yamllint
 - stylelint
 
 # Inputs
@@ -60,13 +60,21 @@ on:
 
 jobs:
   run:
+    permissions:
+      checks: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: git fetch origin main --depth=1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }} # checkout HEAD commit instead of merge commit
+          fetch-depth: 50 # If your repository has long-living PRs, this might need to be higher
+      - run: git fetch origin main
       - uses: apptweak/pronto-ruby@use_head_commit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target: origin/main
 ```
 
 With specific runners:
@@ -77,25 +85,6 @@ name: Pronto
       with:
         runners: >-
           rubocop rails_schema yamllint
-```
-
-With `eslint_npm` runner using locally installed eslint:
-
-```yaml
-name: Pronto
-# ...
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: git fetch origin master --depth=1
-      - uses: actions/setup-node@v1
-      - run: yarn install --ignore-optional --ignore-scripts --frozen-lockfile --non-interactive
-      - uses: apptweak/pronto-ruby@use_head_commit
-        with:
-          runners: eslint_npm # ...
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Development / Contributions

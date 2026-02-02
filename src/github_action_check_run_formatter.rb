@@ -1,6 +1,9 @@
-require 'ostruct'
-require 'pronto'
-require_relative './annotation'
+# frozen_string_literal: true
+
+require "pronto"
+require_relative "annotation"
+
+require "ostruct"
 
 module Pronto
   module Formatter
@@ -30,7 +33,7 @@ module Pronto
 
       # @return [String] The name of the formatter.
       def self.name
-        'github_action_check_run'
+        "github_action_check_run"
       end
 
       # Formats the messages into GitHub Action Check Runs.
@@ -55,7 +58,7 @@ module Pronto
         @client ||= Octokit::Client.new(
           api_endpoint: config.github_api_endpoint,
           web_endpoint: config.github_web_endpoint,
-          access_token: ENV.fetch('GITHUB_TOKEN') { config.github_access_token }
+          access_token: ENV.fetch("GITHUB_TOKEN") { config.github_access_token }
         )
       end
 
@@ -75,9 +78,9 @@ module Pronto
         )
         if no_line_annotations.any?
           output.text = <<~TXT
-| sha | level | message |
-| --- | --- | --- |
-#{no_line_annotations.map(&:to_markdown_s).join("\n")}
+            | sha | level | message |
+            | --- | --- | --- |
+            #{no_line_annotations.map(&:to_markdown_s).join("\n")}
           TXT
         end
         client.create_check_run(
@@ -89,7 +92,7 @@ module Pronto
           started_at: Time.now.iso8601,
           status: :completed,
           completed_at: Time.now.iso8601,
-          accept: 'application/vnd.github.antiope-preview+json'
+          accept: "application/vnd.github.antiope-preview+json"
         )
       end
 
@@ -114,12 +117,12 @@ module Pronto
       # @return [String] The full name of the repository in the format "owner/repo".
       # @raise [RuntimeError] If the GitHub event path is not set and the slug is not found in the config.
       def repo_slug
-        @repo_slug ||= if ENV.key?('GITHUB_EVENT_PATH')
-                         event = JSON.parse(File.read(ENV.fetch('GITHUB_EVENT_PATH')))
-                         event.fetch('repository').fetch('full_name')
-                       else
-                         config.github_slug || raise('no github.slug in pronto config')
-                       end
+        @repo_slug ||= if ENV.key?("GITHUB_EVENT_PATH")
+          event = JSON.parse(File.read(ENV.fetch("GITHUB_EVENT_PATH")))
+          event.fetch("repository").fetch("full_name")
+        else
+          config.github_slug || raise("no github.slug in pronto config")
+        end
       end
 
       def messages_by_runner

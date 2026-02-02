@@ -5,14 +5,18 @@ on:
 
 jobs:
   run:
+    permissions:
+      checks: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
+    - run: git fetch origin main
     - name: Pronto Run
       uses: ./
       with:
         target: origin/main
         runners: >-
-          rubocop bundler_audit brakeman yamllint
+          rubocop brakeman
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

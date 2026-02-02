@@ -1,3 +1,83 @@
+4.6-r | 2025-11-28
+---
+Changes
+* Upgrade ruby to 3.3.x by @renatolond in https://github.com/renatolond/pronto-ruby/pull/70
+* Upgrade ruby to 3.4.7 by @renatolond in https://github.com/renatolond/pronto-ruby/pull/71
+
+4.5-r | 2025-11-28
+---
+Changes
+* Bump rubocop-rails from 2.32.0 to 2.33.0 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/57
+* Bump rubocop-rails from 2.33.0 to 2.33.3 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/58
+* Bump the rubocop-dependencies group with 2 updates by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/59
+* Bump rubocop-performance from 1.25.0 to 1.26.0 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/60
+* Bump rubocop-rails from 2.33.3 to 2.33.4 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/61
+* Bump rubocop-performance from 1.26.0 to 1.26.1 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/62
+* Bump rspec from 3.13.1 to 3.13.2 by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/63
+* Bump webmock from 3.25.1 to 3.26.0 by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/64
+* Bump webmock from 3.26.0 to 3.26.1 by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/65
+* Bump the rubocop-dependencies group with 2 updates by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/66
+* Bump rubocop-rails from 2.33.4 to 2.34.0 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/67
+* Bump rubocop-rails from 2.34.0 to 2.34.1 in the rubocop-dependencies group by @dependabot[bot] in https://github.com/renatolond/pronto-ruby/pull/68
+
+4.4-r | 2025-06-30
+---
+Changes
+* Bump rubocop-rspec from 3.5.0 to 3.6.0 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/49
+* Bump the pronto-dependencies group across 1 directory with 2 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/51
+* Bump rubocop-rails from 2.31.0 to 2.32.0 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/52
+* Bump rspec from 3.13.0 to 3.13.1 by @dependabot in https://github.com/renatolond/pronto-ruby/pull/53
+* Bump rubocop-minitest from 0.38.0 to 0.38.1 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/54
+* Bump rubocop-thread_safety from 0.7.2 to 0.7.3 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/55
+* Bump rubocop-yard from 0.10.0 to 1.0.0 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/56
+
+4.3-r | 2025-04-01
+---
+Changes
+* Bump rubocop-rails from 2.28.0 to 2.29.0 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/33
+* Bump pronto-stylelint from 0.10.3 to 0.11.0 in the pronto-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/34
+* Bump the rubocop-dependencies group with 2 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/35
+* Update checkout version in workflow by @renatolond in https://github.com/renatolond/pronto-ruby/pull/36
+* Bump rubocop-rails from 2.29.0 to 2.29.1 in the rubocop-dependencies group by @dependabot in https://github.com/renatolond/pronto-ruby/pull/37
+* Bump webmock from 3.24.0 to 3.25.0 by @dependabot in https://github.com/renatolond/pronto-ruby/pull/38
+* Bump the rubocop-dependencies group with 5 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/39
+* Bump the rubocop-dependencies group across 1 directory with 6 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/45
+* Bump webmock from 3.25.0 to 3.25.1 by @dependabot in https://github.com/renatolond/pronto-ruby/pull/44
+* Bump the rubocop-dependencies group with 7 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/46
+* Bump ruby to 3.2.8 by @renatolond in https://github.com/renatolond/pronto-ruby/pull/48
+
+4.2-r | 2025-01-13
+---
+Changes:
+* Bump the pronto-dependencies group with 4 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/30
+* Bump the rubocop-dependencies group across 1 directory with 5 updates by @dependabot in https://github.com/renatolond/pronto-ruby/pull/29
+* Add rubocop-capybara gem by @renatolond in https://github.com/renatolond/pronto-ruby/pull/31
+* Bump ruby to 3.2.6 by @renatolond in https://github.com/renatolond/pronto-ruby/pull/32
+
+4.1-r | 2024-11-13
+---
+Changes:
+* Bump the rubocop-dependencies group with 2 updates by @dependabot in #16
+* Bump rspec from 3.11.0 to 3.13.0 by @dependabot in #13
+* Bump webmock from 3.23.1 to 3.24.0 by @dependabot in #18
+* Bump the rubocop-dependencies group across 1 directory with 4 updates by @dependabot in #23
+
+4.0-r | 2024-09-18
+---
+**BREAKING CHANGES:**
+
+ * Unlike the original action, this fork is focused on Ruby-only. This means any node-related runners are removed.
+
+ * Pronto is upgraded, the following runners are not yet compatible and therefore removed:
+   - pronto-bundler_audit
+   - pronto-yamllint
+
+Changes:
+ * Upgrades ruby to 3.2.2
+ * Upgrades Bundler to 2.4.3
+ * Bump rubocop to 1.66.1
+ * Upgrades all runners and dependencies
+
 4.0 | 2022-03-17
 ---
 
