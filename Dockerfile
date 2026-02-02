@@ -8,13 +8,13 @@ ARG CVS_REF=
 
 LABEL maintainer="DevEx Team <squad_devex@apptweak.com>"
 LABEL org.opencontainers.image.source https://github.com/apptweak/pronto-ruby
-LABEL org.opencontainers.image.title="AppTweak Pronto Ruby Runner"
-LABEL org.opencontainers.image.description="GitHub Action for running Pronto code review automation for Ruby projects"
-LABEL org.opencontainers.image.source="https://github.com/apptweak/pronto-ruby"
-LABEL org.opencontainers.image.url="https://github.com/apptweak/pronto-ruby"
-LABEL org.opencontainers.image.vendor="AppTweak"
-LABEL org.opencontainers.image.version=${CVS_REF}
-LABEL org.opencontainers.image.created=${BUILD_DATE}
+LABEL org.opencontainers.image.title "AppTweak Pronto Ruby Runner"
+LABEL org.opencontainers.image.description "GitHub Action for running Pronto code review automation for Ruby projects"
+LABEL org.opencontainers.image.source "https://github.com/apptweak/pronto-ruby"
+LABEL org.opencontainers.image.url "https://github.com/apptweak/pronto-ruby"
+LABEL org.opencontainers.image.vendor "AppTweak"
+LABEL org.opencontainers.image.version ${CVS_REF}
+LABEL org.opencontainers.image.created ${BUILD_DATE}
 
 RUN apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -37,7 +37,7 @@ RUN gem install bundler --version "${BUNDLER_VERSION}"
 
 WORKDIR /runner
 
-COPY Gemfile* .bundle ./
+COPY Gemfile* ./
 
 RUN bundle install --retry 4
 
