@@ -16,15 +16,19 @@ LABEL org.opencontainers.image.vendor="AppTweak"
 LABEL org.opencontainers.image.version=${CVS_REF}
 LABEL org.opencontainers.image.created=${BUILD_DATE}
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        build-essential \
-        cmake \
-        curl \
-        git \
-        pkg-config \
-        openssl \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y curl
+
+RUN apt-get update && \
+  apt-get install --no-install-recommends -y \
+  build-essential \
+  cmake \
+  git \
+  pkg-config \
+  openssl \
+  libssl-dev \
+  libzstd-dev \
+  libz-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 # Make sure to use bash with pipefail in case something
 # fails while being piped to another command in the docker-build
@@ -34,9 +38,9 @@ RUN gem install bundler --version "${BUNDLER_VERSION}"
 
 WORKDIR /runner
 
-COPY Gemfile* ./
+COPY Gemfile* .bundle ./
 
-RUN bundle --retry 4
+RUN bundle install --retry 4
 
 ENV BUNDLE_GEMFILE=/runner/Gemfile
 

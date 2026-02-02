@@ -3,11 +3,17 @@ updates:
 - package-ecosystem: bundler
   directory: "/"
   schedule:
-    interval: daily
-    time: "10:00"
+    interval: monthly
   open-pull-requests-limit: 10
   ignore:
-  - dependency-name: pry
-    versions:
-    - ">= 0.13.a"
-    - "< 0.14"
+    - dependency-name: pry
+      versions:
+        - ">= 0.13.a"
+        - "< 0.14"
+  groups:
+    rubocop-dependencies:
+      patterns:
+        - "rubocop*"
+    pronto-dependencies:
+      patterns:
+        - "pronto*"
