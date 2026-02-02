@@ -30,7 +30,7 @@ gem "rubocop-sequel", require: false
 gem "rubocop-thread_safety", require: false
 gem "rubocop-yard", require: false
 
-gem "rugged", "< 1.7.1" # Rugged v1.7.1 introduces an issue with pronto, see https://github.com/prontolabs/pronto/issues/447 for updates
+gem "rugged", "<= 1.9.0" # Rugged v1.7.1 introduces an issue with pronto, see https://github.com/prontolabs/pronto/issues/447 for updates
 
 group :test do
   gem "climate_control"
