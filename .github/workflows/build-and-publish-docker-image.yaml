@@ -1,6 +1,6 @@
 name: Build and publish docker image
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
   push:
     branches:
      - main
@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      # Required to push images to GitHub Container Registry (ghcr.io)
+      packages: write
       # Gives the action the ability to mint the OIDC token necessary to request a Sigstore signing certificate
       id-token: write
       # Permission necessary to persist the attestation
@@ -32,7 +34,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          # Repo-scoped username for audit clarity; write access is granted by GITHUB_TOKEN (repo token)
+          username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -40,10 +43,12 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
+            # Branch name as tag (and semver for v* tag pushes only)
             type=ref,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            # So GHCR shows "latest" instead of the image digest
+            type=raw,value=latest
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
