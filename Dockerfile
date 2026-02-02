@@ -16,11 +16,10 @@ LABEL org.opencontainers.image.vendor="AppTweak"
 LABEL org.opencontainers.image.version=${CVS_REF}
 LABEL org.opencontainers.image.created=${BUILD_DATE}
 
-RUN apt-get update && apt-get install -y curl
-
 RUN apt-get update && \
   apt-get install --no-install-recommends -y \
   build-essential \
+  curl \
   cmake \
   git \
   pkg-config \
