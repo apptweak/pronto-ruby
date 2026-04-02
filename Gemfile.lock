@@ -185,7 +185,7 @@ GEM
       reline (>= 0.6.0)
     public_suffix (7.0.2)
     racc (1.8.1)
-    rack (3.2.4)
+    rack (3.2.6)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -425,7 +425,7 @@ CHECKSUMS
   pry (0.16.0) sha256=d76c69065698ed1f85e717bd33d7942c38a50868f6b0673c636192b3d1b6054e
   public_suffix (7.0.2) sha256=9114090c8e4e7135c1fd0e7acfea33afaab38101884320c65aaa0ffb8e26a857
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
-  rack (3.2.4) sha256=5d74b6f75082a643f43c1e76b419c40f0e5527fcfee1e669ac1e6b73c0ccb6f6
+  rack (3.2.6) sha256=5ed78e1f73b2e25679bec7d45ee2d4483cc4146eb1be0264fc4d94cb5ef212c2
   rails-dom-testing (2.3.0) sha256=8acc7953a7b911ca44588bf08737bc16719f431a1cc3091a292bca7317925c1d
   rails-html-sanitizer (1.6.2) sha256=35fce2ca8242da8775c83b6ba9c1bcaad6751d9eb73c1abaa8403475ab89a560
   rails_best_practices (1.23.3) sha256=543ea7d7a26fdb91fb0c54496defaf1b266e3e89ac9e05a879fcd8c4f8b03b0c
